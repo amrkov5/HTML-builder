@@ -20,9 +20,10 @@ rl.on('line', (input) => {
 });
 
 rl.on('SIGINT', () => {
-  console.log('Good bye!');
+  console.log('\nGood bye!');
+  writeStream.close();
   rl.close();
   setTimeout(() => {
     process.exit();
-  }, 1000);
+  }, 500);
 });
