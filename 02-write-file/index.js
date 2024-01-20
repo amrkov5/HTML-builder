@@ -10,6 +10,7 @@ rl.setPrompt('Greetings!\nEnter text: ');
 rl.prompt();
 rl.on('line', (input) => {
   if (input === 'exit' || input === 'Exit') {
+    console.log('\nGood bye!');
     stopApp();
   } else {
     if (input.length === 0) {
@@ -26,12 +27,10 @@ rl.on('line', (input) => {
 function stopApp() {
   rl.close();
   writeStream.close();
-  console.log('\nGood bye!');
-  setTimeout(() => {
-    process.exit();
-  }, 500);
+  process.exit();
 }
 
 rl.on('SIGINT', () => {
+  console.log('\nGood bye!');
   stopApp();
 });
