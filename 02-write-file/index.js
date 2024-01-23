@@ -6,7 +6,8 @@ const pathToFile = path.join(__dirname, 'text.txt');
 const rl = readline.createInterface(process.stdin, process.stdout);
 const writeStream = fs.createWriteStream(pathToFile, { flags: 'a' });
 
-rl.setPrompt('Greetings!\nEnter text: ');
+console.log('Greetings');
+rl.setPrompt('Enter text: ');
 rl.prompt();
 rl.on('line', (input) => {
   if (input === 'exit' || input === 'Exit') {
